@@ -1,0 +1,36 @@
+@base: #000;
+@primary: #009ECF;
+@yellow: #FFEDCC;
+
+body {
+  color: @base;
+  font-size: 15pt;
+  font-family: 'PT Serif', 'Times New Roman', serif;
+}
+
+a {
+  color: @primary;
+  text-decoration: none;
+  &:hover {opacity: 0.7;}
+}
+
+
+.reader {
+  width: 700px;
+  margin: 0 auto;
+  position: relative;
+  
+  .title {
+    font-family: 'Cinzel Decorative';
+    font-size: 28pt;
+    font-weight: 700;
+  }
+
+  .story {
+    line-height: 150%;
+  }
+}
+
+.highlighted {
+  background-color: @yellow;
+}
