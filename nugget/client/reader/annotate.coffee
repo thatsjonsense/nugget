@@ -27,9 +27,9 @@ class @Annotater
 
     # Get Highlights
 
-    highlights = Highlights.find
+    highlights_all = Highlights.find
       article_id: @article._id
     .fetch()
 
-    for h in highlights
-      $("[chunk-index=#{h.chunk}]").addClass('highlighted')
+    for chunk, highlights of _.groupBy(highlights_all, (h) -> h.chunk)
+      $("[chunk-index=#{chunk}]").attr('highlights',highlights.length)
