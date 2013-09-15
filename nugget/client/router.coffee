@@ -4,7 +4,7 @@ Meteor.Router.add
 
   '/nuggets': 'nuggets'
 
-  '/:story': (name) ->
+  '/article/:story': (name) ->
     Session.set('viewing_article',name)
     return 'reader'
 

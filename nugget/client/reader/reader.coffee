@@ -14,9 +14,9 @@ Template.reader.rendered = ->
     Deps.autorun =>
       a.showHighlights()
 
-
-
-
+Template.reader.events
+  'click .skim': ->
+    $('article').toggleClass('skim')
 
 
 ###

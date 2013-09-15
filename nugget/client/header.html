@@ -1,10 +1,17 @@
 <template name='header'>
+
+
   <header>
+    
+  <div class='account'>
     {{#if currentUser}}
-    Hello {{currentUser.profile.name}}! <button class='logout'>Log out</button>
+    Hello {{currentUser.profile.name}}! <button class='logout'>{{{icon "cancel.png"}}} Log out</button>
     {{else}}
-    <button class='login'>Log in</button>
+    <button class='login'>{{{icon "next.png"}}} Log in</button>
     {{/if}}
+  </div>
+
+
 
 
   </header>
