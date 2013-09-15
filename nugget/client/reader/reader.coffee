@@ -11,9 +11,8 @@ Template.reader.rendered = ->
   if article
     a = new Annotater(article, @find('.text'))
 
-
-  Deps.autorun =>
-    a.highlight()
+    Deps.autorun =>
+      a.showHighlights()
 
 
 

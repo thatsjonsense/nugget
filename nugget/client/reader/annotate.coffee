@@ -14,18 +14,25 @@ class @Annotater
     # Register events on each chunk
     article_id = @article._id
 
+
+    A = @
     chunks.click ->
-
-      highlight = 
-        user_id: Meteor.userId()
-        article_id: article_id 
-        chunk: $(@).attr('chunk-index') 
-
-      Highlights.insert highlight
+      A.saveHighlight(@)
+      
         
-  highlight: ->
 
-    # Get Highlights
+  saveHighlight: (node) ->
+
+    highlight = 
+      user_id: Meteor.userId()
+      article_id: @article._id
+      text: $(node).text()
+      chunk: $(node).attr('chunk-index') 
+
+    Highlights.insert highlight
+
+
+  showHighlights: ->
 
     highlights_all = Highlights.find
       article_id: @article._id
