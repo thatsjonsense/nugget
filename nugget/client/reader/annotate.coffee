@@ -24,3 +24,12 @@ class @Annotater
       Highlights.insert highlight
         
   highlight: ->
+
+    # Get Highlights
+
+    highlights = Highlights.find
+      article_id: @article._id
+    .fetch()
+
+    for h in highlights
+      $("[chunk-index=#{h.chunk}]").addClass('highlighted')
