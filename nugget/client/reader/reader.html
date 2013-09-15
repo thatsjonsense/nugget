@@ -1,15 +1,18 @@
 <template name='reader'>
-{{#with article}}
-<div class='article'>
-  <h1 class='title'>
-    {{title}}
-  </h1>
-  <em class='meta'>
-    By <a href="{{source}}">{{author}}</a>
-  </em>
-  <div class='story'>
-    {{{body}}}
-  </div>
+<div class='wrapper'>
+  
+  {{#with article}}
+  <article>
+    <h1 class='title'>
+      {{title}}
+    </h1>
+    <em class='meta'>
+      By <a href="{{source}}">{{author}}</a>
+    </em>
+    <div class='story'>
+      {{{body}}}
+    </div>
+  </article>
+  {{/with}}
 </div>
-{{/with}}
 </template>

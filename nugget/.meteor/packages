@@ -10,3 +10,5 @@ preserve-inputs
 router
 coffeescript
 less
+accounts-facebook
+accounts-ui
