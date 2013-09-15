@@ -38,5 +38,11 @@ class @Annotater
       article_id: @article._id
     .fetch()
 
-    for chunk, highlights of _.groupBy(highlights_all, (h) -> h.chunk)
-      $("[chunk-index=#{chunk}]").attr('highlights',highlights.length)
+    for chunk_index, highlights of _.groupBy(highlights_all, (h) -> h.chunk)
+      chunk = $("[chunk-index=#{chunk_index}]")
+      h = highlights[0]
+      user = Meteor.users.findOne h.user_id
+
+      chunk
+        .attr('highlights',highlights.length)
+        .prepend(Template.reader_nugget(user))

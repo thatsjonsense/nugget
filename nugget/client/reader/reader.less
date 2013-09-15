@@ -1,5 +1,13 @@
 @yellow: #FFEDCC;
+@face_size: 50px;
 
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
 
 article {
   
@@ -19,3 +27,23 @@ article {
 [chunk-index]:hover {
   background-color: fadeout(@yellow,50%);
 }
+
+
+[chunk-index] {
+  position: relative;
+}
+
+
+
+.head {
+
+  position: absolute;
+  right: -@face_size + 10px;
+
+  img {
+    width: @face_size;
+    height: @face_size;
+    .rounded-corners(@face_size)
+  }
+
+} 
