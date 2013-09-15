@@ -1,10 +1,15 @@
 <template name='reader'>
-<div class='reader'>
+{{#with article}}
+<div class='article'>
   <h1 class='title'>
-    The Blast Shack
+    {{title}}
   </h1>
+  <em class='meta'>
+    By <a href="{{source}}">{{author}}</a>
+  </em>
   <div class='story'>
-    {{{text}}}
+    {{{body}}}
   </div>
 </div>
+{{/with}}
 </template>

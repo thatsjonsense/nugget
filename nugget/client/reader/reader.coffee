@@ -1,31 +1,35 @@
-Template.reader.title = ->
-  "The title!"
-
-Template.reader.text = ->
-  #"The text!"
-  Template.text_bruce()
+Template.reader.article = ->
+  name = Session.get('viewing_article')
+  article = Articles.findOne {name: name}
+  return article
 
 
-
-
-# Scroll position
-##################
-
+###
 Session.setDefault('user_id',Meteor.uuid())
 
 
-@onScroll = ->
+
+@showScrollers = ->
+  scrollers = Positions.find().fetch()
+
+@updateScroller = ->
   
-
   p = $('p:in-viewport').slice(1,2)
-
   $('.highlighted').removeClass('highlighted')
   p.addClass('highlighted')
 
+  user_id = Session.get('user_id')
+  position = p.text()[..25]
 
-  Session.set('current_paragraph',p.text())
+  if not Positions.findOne {_id: user_id}
+    Positions.insert {_id: user_id}
+
+  Positions.update user_id, {position: position, text: p.text()}
+
+  #Session.set('current_paragraph',p.text())
 
 
 Template.reader.rendered = ->
 
-  $(window).scroll onScroll
+  $(window).scroll updateScroller
+###

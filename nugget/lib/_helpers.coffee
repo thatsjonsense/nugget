@@ -1,0 +1,4 @@
+
+# Logging
+@print = console.log
+

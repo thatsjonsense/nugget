@@ -1,0 +1,9 @@
+<template name='list'>
+  <ol>
+  {{#each articles}}
+    <li>
+      <a href="/{{name}}">{{title}}</a> by {{author}}
+    </li>
+  {{/each}}
+  </ol>
+</template>
