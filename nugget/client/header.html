@@ -1,5 +1,11 @@
 <template name='header'>
   <header>
-    {{loginButtons}}
+    {{#if currentUser}}
+    Hello {{currentUser.profile.name}}! <button class='logout'>Log out</button>
+    {{else}}
+    <button class='login'>Log in</button>
+    {{/if}}
+
+
   </header>
 </template>
