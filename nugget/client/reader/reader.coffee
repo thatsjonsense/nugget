@@ -1,7 +1,23 @@
 Template.reader.article = ->
   name = Session.get('viewing_article')
+  @article = Articles.findOne {name: name}
+  return @article
+
+Template.reader.rendered = ->
+
+  name = Session.get('viewing_article')
   article = Articles.findOne {name: name}
-  return article
+
+  if article
+    a = new Annotater(article, @find('.text'))
+
+
+  Deps.autorun =>
+    a.highlight()
+
+
+
+
 
 
 ###

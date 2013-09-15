@@ -1,6 +1,7 @@
 
 # Logging
-@print = console.log
+@print = (stuff) ->
+  console.log stuff
 
 @prettify = (stuff) ->
   JSON.stringify(stuff,null,2)
