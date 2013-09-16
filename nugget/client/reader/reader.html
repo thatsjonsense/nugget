@@ -1,14 +1,14 @@
 <template name='reader'>
+
+{{#constant}}
+<div class='positions'>
+</div>
+{{/constant}}
 <div class='wrapper'>
   
   <div class='actions'>
     <button class='skim'>{{{icon "parent.png"}}} Skim</button>
   </div>
-
-  {{#constant}}
-  <div class='positions'>
-  </div>
-  {{/constant}}
 
   {{#with article}}
   <article>
@@ -32,4 +32,8 @@
     <img src='{{profile.picture}}' />
   </div>
 
+</template>
+
+<template name='reader_position_head'>
+    <img src='' />
 </template>

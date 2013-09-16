@@ -1,5 +1,6 @@
 class @PositionTracker
 
+  offset: 100
 
   constructor: (@article) ->
     @id = Reads.findOrInsert
@@ -8,7 +9,12 @@ class @PositionTracker
     ._id
 
   getPosition: ->
-    $(document).scrollTop()
+    $(document).scrollTop() + @offset
+
+  allPositions: ->
+    Reads.find
+      article_id: @article._id
+    .fetch()
 
   updatePosition: ->
 

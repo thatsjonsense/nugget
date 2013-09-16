@@ -13,11 +13,40 @@ Template.reader.rendered = ->
     P = new PositionTracker(article)
 
     $(document).scroll ->
-      P.updatePosition()
+      _.throttle P.updatePosition(), 500
 
 
     Deps.autorun =>
+
+      # Annotations
       A.showHighlights()
+
+
+      # Reading positions
+      positions = P.allPositions()
+
+      heads = d3.select(@find('.positions'))
+        .selectAll('.head')
+        .data(positions)
+
+      heads.enter()
+        .append('div')
+        .attr('class','head')
+        .html((d) -> Template.reader_position_head())
+
+      heads.exit()
+        .remove
+
+      heads.select('img')
+        .attr 'src', (d) ->
+          if user = Meteor.users.findOne(d.user_id)
+            picture = user.profile.picture
+          else
+            picture = 'http://ts2.mm.bing.net/th?id=H.4524186546209105&w=214&h=188&c=7&rs=1&pid=1.7'
+
+      heads.transition().duration(500).ease('cubic-out')
+        .style 'top', (d) -> 
+          d.position + 'px'
 
 
 

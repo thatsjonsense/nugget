@@ -9,6 +9,7 @@
   border-radius: @radius;
 }
 
+// Base CSS
 
 article {
   
@@ -25,33 +26,53 @@ article {
   }
 }
 
+// Reading position
+
+.positions {
+
+  position: absolute;
+  top: 0px;
+  left: 10px;
+
+  .head {
+    position: absolute;
+
+    img {
+      width: @face_size;
+      height: @face_size;
+      .rounded-corners(@face_size);
+    }
+  }
+}
+
+// Highlight
+
 [highlights] {
   border-right: 10px solid @yellow;
-}
 
-[chunk-index]:hover {
-  background-color: fadeout(@yellow,50%);
-}
+  .head {
 
+    position: absolute;
+    right: -@face_size + 10px;
+
+    img {
+      width: @face_size;
+      height: @face_size;
+      .rounded-corners(@face_size);
+    }
+
+  } 
+}
 
 [chunk-index] {
   position: relative;
+
+  &:hover {
+    background-color: fadeout(@yellow,50%);
+  }
 }
 
-
-
-.head {
-
-  position: absolute;
-  right: -@face_size + 10px;
-
-  img {
-    width: @face_size;
-    height: @face_size;
-    .rounded-corners(@face_size);
-  }
-
-} 
+// Skim
 
 article.skim {
   
