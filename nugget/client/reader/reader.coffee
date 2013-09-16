@@ -23,7 +23,7 @@ Template.reader.rendered = ->
 
 
       # Reading positions
-      positions = P.allPositions()
+      positions = _.reject P.allPositions(), (p) -> p.user_id == Meteor.userId()
 
       heads = d3.select(@find('.positions'))
         .selectAll('.head')
