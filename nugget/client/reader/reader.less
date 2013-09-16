@@ -19,10 +19,14 @@ article {
   .text {
     line-height: 150%;
   }
+
+  .text p {
+    padding-right: 10px;
+  }
 }
 
 [highlights] {
-  background-color: @yellow;
+  border-right: 10px solid @yellow;
 }
 
 [chunk-index]:hover {
@@ -44,7 +48,7 @@ article {
   img {
     width: @face_size;
     height: @face_size;
-    .rounded-corners(@face_size)
+    .rounded-corners(@face_size);
   }
 
 } 
