@@ -2,8 +2,6 @@
 
 Meteor.startup ->
 
-  if Articles.find().count() == 0
-
     texts = 
       'blast_shack': 
         author: 'Bruce Sterling'
@@ -50,8 +48,14 @@ Meteor.startup ->
         source: 'http://news.stanford.edu/news/2005/june15/jobs-061505.html'
         title: 'Stanford Commencement Address'
 
+      'gervais':
+        author: 'Venkatesh Rao'
+        source: 'http://www.ribbonfarm.com/2009/10/07/the-gervais-principle-or-the-office-according-to-the-office/'
+        title: 'The Gervais Principle, or the Office according to "The Office"'
+
+
     for name, text of texts
       text.body = Assets.getText("mock_data/#{name}.html")
       text.name = name
-      Articles.insert text
+      Articles.findOrInsert text
 

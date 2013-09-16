@@ -1,6 +1,6 @@
 class @PositionTracker
 
-  offset: 100
+  offset: 0
 
   constructor: (@article) ->
     @id = Reads.findOrInsert

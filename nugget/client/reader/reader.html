@@ -1,17 +1,21 @@
 <template name='reader'>
 
-{{#constant}}
-<div class='positions'>
-</div>
-{{/constant}}
+
 <div class='wrapper'>
-  
+
   <div class='actions'>
     <button class='skim'>{{{icon "parent.png"}}} Skim</button>
   </div>
 
   {{#with article}}
   <article>
+
+    {{#constant}}
+    <div class='positions'>
+    </div>
+    {{/constant}}
+
+    
     <h1 class='title'>
       {{title}}
     </h1>
