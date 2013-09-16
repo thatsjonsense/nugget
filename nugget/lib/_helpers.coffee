@@ -8,4 +8,4 @@
 
 # Models
 _.extend Meteor.Collection.prototype,
-  upsert: (obj) -> @findOne(obj) ? @findOne(@insert(obj))
+  findOrInsert: (obj) -> @findOne(obj) ? @findOne(@insert(obj))

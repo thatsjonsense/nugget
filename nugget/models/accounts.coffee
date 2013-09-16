@@ -6,7 +6,7 @@ if Meteor.isServer
     user.profile = opt.profile
     return user
 
-  Accounts.loginServiceConfiguration.upsert
+  Accounts.loginServiceConfiguration.findOrInsert
     service: 'facebook',
     appId: '170815603107723',
     secret: 'f4b57f457041802e1f0ba76a0d1c44e3'

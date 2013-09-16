@@ -9,10 +9,19 @@ Template.reader.rendered = ->
   article = Articles.findOne {name: name}
 
   if article
-    a = new Annotater(article, @find('.text'))
+    A = new Annotater(article, @find('.text'))
+    P = new PositionTracker(article)
+
+    $(document).scroll ->
+      P.updatePosition()
+
 
     Deps.autorun =>
-      a.showHighlights()
+      A.showHighlights()
+
+
+
+
 
 Template.reader.events
   'click .skim': ->
