@@ -11,6 +11,11 @@ if Meteor.isServer
     appId: '170815603107723',
     secret: 'f4b57f457041802e1f0ba76a0d1c44e3'
 
+  Accounts.loginServiceConfiguration.findOrInsert
+    service: 'readability',
+    consumerKey: 'cheeselord',
+    secret: 'BCMNYu35NzN4KG6qGMceTvcTExTq25bx'
+
 if Meteor.isClient
 
   Template.header.events

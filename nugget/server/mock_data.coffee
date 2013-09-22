@@ -1,4 +1,6 @@
 
+print 'testing...'
+
 
 Meteor.startup ->
 
